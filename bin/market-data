@@ -1,4 +1,4 @@
 #!/usr/bin/env ruby
-require_relative '../lib/market-data'
+require_relative '../config/environment'
 
-MarketData::CLI.new.call
+CLI.new.call
