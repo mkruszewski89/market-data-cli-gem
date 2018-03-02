@@ -10,7 +10,7 @@ class CLI
   def call
     input = nil
     loop do
-      puts "Enter a ticker symbol, 'list' for some examples, or 'exit':"
+      puts "Enter any ticker symbol, 'list' for some examples, or 'exit':"
       input = gets.strip.downcase
       case input
       when 'exit'
@@ -28,12 +28,11 @@ class CLI
     Ticker.all.each_with_index {|ticker, index|
       puts "#{index+1}. #{ticker.ticker}  |  #{ticker.name}"
     }
-    puts "Please enter a number for more details or 'exit':"
+    puts "Please enter a number to open webpage or 'exit':"
     input = gets.strip.downcase
     return if input == 'exit'
     index = input.to_i - 1
-    puts index
-    #Ticker.all[index] build out more data points
+    system("open -a Safari #{Ticker.all[index].url}")
   end
 
   def create_ticker(input)
