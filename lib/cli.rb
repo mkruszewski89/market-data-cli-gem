@@ -28,7 +28,7 @@ class CLI
     Ticker.all.each_with_index {|ticker, index|
       puts "#{index+1}. #{ticker.ticker}  |  #{ticker.name}"
     }
-    puts "Please enter a number to open webpage or 'exit':"
+    puts "Please enter a number to view the webpage for more details or 'exit':"
     input = gets.strip.downcase
     return if input == 'exit'
     index = input.to_i - 1
@@ -43,6 +43,9 @@ class CLI
   def display_ticker(input)
     ticker = create_ticker(input)
     ticker.display
+    puts "Would you like to view the webpage for more details (y/n)?:"
+    input = gets.strip.downcase
+    system("open -a Safari #{ticker.url}") if input == "y"
   end
 
 end
