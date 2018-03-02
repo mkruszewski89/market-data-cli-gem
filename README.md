@@ -5,7 +5,9 @@ Installation
 1) Install the necessary gems from the command line with:
 bundle install
 
-2) In the command line from the market-data-cli-gem directory, run the program with:
+2) Ensure you have the Safari web browser installed.
+
+3) In the command line from the market-data-cli-gem directory, run the program with:
 bin/market-data
 
 
