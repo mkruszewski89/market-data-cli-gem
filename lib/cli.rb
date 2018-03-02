@@ -8,7 +8,6 @@ class CLI
   end
 
   def call
-    input = nil
     loop do
       puts "Enter any ticker symbol, 'list' for some examples, or 'exit':"
       input = gets.strip.downcase
@@ -35,17 +34,17 @@ class CLI
     display_ticker(input)
   end
 
-  def create_ticker(input)
-    ticker_data = Scraper.scrape_ticker_page(input)
-    Ticker.new(ticker_data)
-  end
-
   def display_ticker(input)
     ticker = create_ticker(input)
     ticker.display
     puts "Would you like to view the webpage for more details (y/n)?:"
     input = gets.strip.downcase
     system("open -a Safari #{ticker.url}") if input == "y"
+  end
+
+  def create_ticker(input)
+    ticker_data = Scraper.scrape_ticker_page(input)
+    Ticker.new(ticker_data)
   end
 
 end
