@@ -18,8 +18,4 @@ class Ticker
     puts "#{ticker}  |  #{name}  |  #{price}  |  #{day_change}"
   end
 
-  def add_to_list
-    self.class.all << self
-  end
-
 end
